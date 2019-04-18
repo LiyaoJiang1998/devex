@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: devex-db
+  namespace: devex
+  labels:
+    run: devex-db
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: devex-db
+    spec:
+      containers:
+      - name: devex-mongo
+        image: mongo:3.2
+        imagePullPolicy: Always
+        volumeMounts:
+          - name: data
+            mountPath: /data/db
+          - name: lib
+            mountPath: /var/lib/mongodb
+          - name: log
+            mountPath: /var/log/mongodb                        
+        ports:
+        - containerPort: 27017
+        resources:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: pvc-data
+        - name: lib
+          persistentVolumeClaim:
+            claimName: pvc-lib
+        - name: log
+          persistentVolumeClaim:
+            claimName: pvc-log

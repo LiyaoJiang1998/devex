@@ -1,0 +1,86 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: devex-web
+  namespace: devex
+  labels:
+    run: devex-web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: devex-web
+    spec:
+      containers:
+      - name: devex-mean
+        image: cityofedmonton/devex_mean:latest
+        imagePullPolicy: Always
+        env:
+        - name: MAILER_SERVICE_PROVIDER
+          value: gggmail
+        - name: MAILER_FROM
+          value: <Email>
+        - name: MAILER_EMAIL_ID
+          value: <Email>
+        - name: MAILER_PASSWORD
+          value: <Password>
+        - name: NODE_ENV
+          value: development
+        - name: MONGO_SEED
+          value: "true"
+        - name: DISABLE_WATCH
+          value: ""
+        - name: GITHUB_ID
+          value: your_oauth_github_id
+        - name: GITHUB_SECRET
+          value: your_oauth_github_secret
+        - name: MONGO_SEED_LOG_RESULTS
+          value: "true"
+        - name: DEVEX_PROD
+          value: "false"
+        - name: DOMAIN
+          value: http://localhost:3000
+        - name: DEV_ADMIN_PWD
+          value: adminadmin
+        - name: DEV_USER_PWD
+          value: useruser
+        - name: DEV_DEV_PWD
+          value: devdev
+        - name: DEV_DEV2_PWD
+          value: devdev
+        - name: DEV_GOV_PWD
+          value: govgov
+        - name: DB_DEVEX_PORT_27017_TCP_ADDR
+          value: mongodb-service
+        volumeMounts:
+          # - name: config
+          #   mountPath: /opt/mean.js/config
+          # - name: modules
+          #   mountPath: /opt/mean.js/modules
+          # - name: public
+          #   mountPath: /opt/mean.js/public
+          - name: uploads
+            mountPath: /opt/mean.js/uploads
+        ports:
+        - containerPort: 3000
+        - containerPort: 9229
+        - containerPort: 5858
+        - containerPort: 35729
+        resources:
+          limits:
+            cpu: 300m
+            memory: 1024Mi
+      volumes:
+        # - name: config
+        #   hostPath:
+        #     path: '/devex/config'
+        # - name: modules
+        #   hostPath:
+        #     path: '/devex/modules'
+        # - name: public
+        #   hostPath:
+        #     path: '/devex/public'
+        - name: uploads
+          hostPath:
+            path: '/devex/uploads'

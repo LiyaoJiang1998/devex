@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: devex
+spec:
+  type: NodePort
+  ports:
+  - name: porta
+    port: 3000
+    targetPort: 3000
+    nodePort: 32583
+    protocol: TCP
+  - name: portb
+    port: 9229
+    targetPort: 9229
+    protocol: TCP
+  - name: portc
+    port: 5858
+    targetPort: 5858
+    protocol: TCP
+  - name: portd
+    port: 35729
+    targetPort: 35729
+    protocol: TCP
+  selector:
+    run: devex-web
