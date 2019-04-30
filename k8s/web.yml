@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: devex-mean
-        image: cityofedmonton/devex_mean:latest
+        image: cityofedmonton/devex_mean:1
         imagePullPolicy: Always
         env:
         - name: MAILER_SERVICE_PROVIDER
@@ -51,7 +51,7 @@ spec:
           value: devdev
         - name: DEV_GOV_PWD
           value: govgov
-        - name: DB_DEVEX_PORT_27017_TCP_ADDR
+        - name: MONGODB_SERVICE_HOST
           value: mongodb-service
         volumeMounts:
           # - name: config
