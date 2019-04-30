@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: devex-mean
-        image: cityofedmonton/devex_mean:1
+        image: cityofedmonton/devex_mean:latest
         imagePullPolicy: Always
         env:
         - name: MAILER_SERVICE_PROVIDER
