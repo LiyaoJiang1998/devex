@@ -3,8 +3,8 @@
 var path = require('path');
 module.exports = {
 	app: {
-		title: 'BCDevExchange - The BC Developer\'s Exchange',
-		description: 'Better ways for government and developers to work together',
+		title: 'City Opportunity Platform (Beta)',
+		description: 'Better ways for city and developers to work together',
 		keywords: 'developer, government, codewithus, agile, digitial service',
 		googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID',
 		domain: process.env.DOMAIN || 'http://localhost:3000',
