@@ -27,7 +27,7 @@ class OrgDetailsPage extends Page {
             Province{$("input",id:"province")}
             PostalCode{$("input",id:"postalcode")}
 
-            BusinessNumber { $("input",id:"businessNumber") }//This is an input entry field
+            // BusinessNumber { $("input",id:"businessNumber") }//This is an input entry field
             Jurisdiction { $("input",id:"businessJurisdiction") }
 
             ContactName{$("input",id:"contactName")}

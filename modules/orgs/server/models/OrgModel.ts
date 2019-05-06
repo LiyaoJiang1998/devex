@@ -22,7 +22,7 @@ const OrgSchema = new Schema(
 		city: { type: String, default: '' },
 		province: { type: String, default: 'BC' },
 		postalcode: { type: String, default: '' },
-		businessNumber: { type: String, default: '' },
+		// businessNumber: { type: String, default: '' },
 		businessJurisdiction: { type: String, default: '' },
 		fullAddress: { type: String, default: '' },
 		contactName: { type: String, default: '' },

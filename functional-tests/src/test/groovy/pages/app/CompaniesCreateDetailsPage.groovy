@@ -15,7 +15,7 @@ class CompaniesCreateDetailsPage extends Page {
             City{$("input",id:"city")}
             Province{$("input",id:"province")}
             PostalCode{$("input",id:"postalcode")}
-            BusinessNumber { $("input",id:"businessNumber") }
+            // BusinessNumber { $("input",id:"businessNumber") }
             Jurisdiction { $("input",id:"businessJurisdiction") }
             WebAddress{$("input",'data-automation-id':"companywebaddress")}
 

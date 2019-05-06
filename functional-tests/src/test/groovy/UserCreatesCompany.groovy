@@ -109,11 +109,11 @@ class UserCreatesCompany extends GebReportingSpec {
     then: "Opens the page to create a new company" 
         waitFor{at CompaniesCreatePage}
 
-    and: "Fill the Name of the Company, Jurisdiction, Business ID, accept the terms and continue"  
+    and: "Fill the Name of the Collaborator, Jurisdiction, accept the terms and continue"  
         waitFor{CompanyName}
         CompanyName.value("Hugo and friend\'s Company") 
         Jurisdiction.value("Vancouver Island and the Inlets") 
-        BusinessNumber.value("BC-123456789")
+        // BusinessNumber.value("BC-123456789")
         AgreeConditions.click() // When all the fields are completed the next button should be enabled
         ContinueSubmitButton.click()
         sleep(2000) //There is an angular animation and I prefer is gone before proceeding
@@ -138,7 +138,7 @@ class UserCreatesCompany extends GebReportingSpec {
 
     and: "First check the Registration number and Jurisdiction have been saved correctly"
         waitFor{SaveCompanyOtherInformationBtn}
-        assert BusinessNumber.value()=="BC-123456789"
+        // assert BusinessNumber.value()=="BC-123456789"
         assert Jurisdiction.value()=="Vancouver Island and the Inlets"
 
     and: "Finish entering all the company information"

@@ -13,7 +13,7 @@ export interface IOrg {
 	city: string;
 	province: string;
 	postalcode: string;
-	businessNumber: string;
+	// businessNumber: string;
 	businessJurisdiction: string;
 	fullAddress: string;
 	contactName: string;

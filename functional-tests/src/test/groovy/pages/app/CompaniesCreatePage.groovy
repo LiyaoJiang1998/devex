@@ -8,7 +8,7 @@ class CompaniesCreatePage extends Page {
 	static content = {
         CompanyName { $("input",id:"companyname") }
         Jurisdiction { $("input",id:"businessJurisdiction") }
-        BusinessNumber { $("input",id:"businessNumber") }
+        // BusinessNumber { $("input",id:"businessNumber") }
 
         AgreeConditions{$("input",'data-automation-id':"AgreeCondCheckBox")}
 
