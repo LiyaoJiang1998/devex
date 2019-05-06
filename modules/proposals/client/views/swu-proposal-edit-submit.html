@@ -10,8 +10,8 @@
         <li ng-if="!ppp.proposal.isAcceptedTerms">Accept the Terms</li>
         <li ng-if="!ppp.isTeamCapable()">Select Team members who cover all of the required capabilities in
           each phase</li>
-        <li ng-if="!ppp.hasMetRFQ()">Ensure that your company meets the RFQ requirements to apply on Sprint With
-          Us opportunities (see your <a ui-sref="orgadmin.profile({orgId:ppp.org._id})">company profile</a>)</li>
+        <li ng-if="!ppp.hasMetRFQ()">Ensure that your Collaborator meets the RFQ requirements to apply on Sprint With
+          Us opportunities (see your <a ui-sref="orgadmin.profile({orgId:ppp.org._id})">Collaborator profile</a>)</li>
       </ul>
     </div>
     <h5>
@@ -19,15 +19,15 @@
     </h5>
 
     <div class="border border-primary p-4">
-      <h6>Company Info</h6>
+      <h6>Collaborator Info</h6>
 
-      <span class="small light">If this info is incorrect, update it in your <a ui-sref="orgadmin.profile({orgId:ppp.org._id})">company
+      <span class="small light">If this info is incorrect, update it in your <a ui-sref="orgadmin.profile({orgId:ppp.org._id})">collaborator
           profile</a>.
       </span>
       <br><br>
       <table>
         <tr>
-          <td class="strong small text-right">Company: </td>
+          <td class="strong small text-right">Collaborator: </td>
           <td class="small text-left">{{ ppp.org.name }}</td>
         </tr>
         <tr>

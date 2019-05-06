@@ -1,11 +1,11 @@
 <div class="row mb-4">
   <div class="col-sm-9">
-    <h3>Companies</h3>
+    <h3>Collaborators</h3>
   </div>
   <div class="col-sm-3 d-none d-sm-block">
     <button ng-if="vm.userCanAdd" class="btn btn-primary mx-0 float-right" ui-sref="orgs.create()" data-automation-id="button-register-a-company"
-      title="Register a Company">
-      <i class="fas fa-plus"></i> Register a Company
+      title="Register a Collaborator">
+      <i class="fas fa-plus"></i> Register a Collaborator
     </button>
   </div>
 </div>
@@ -17,7 +17,7 @@
             type="text" 
             name=""
             ng-model="vm.searchTerm"
-            placeholder="Search companies..."
+            placeholder="Search collaborators..."
             ng-change="vm.filterItems()">
   </div>
 </div>
@@ -52,7 +52,7 @@
                 <button class="btn btn-primary" ng-click="vm.sendJoinRequest(org)" title="Join {{org.name}}">Join</button>
               </div>
               <div ng-if="vm.userIsOrgAdmin(org) || vm.isAdmin" class="hidden-button">
-                <button class="btn btn-text-only" ui-sref="orgs.view({ orgId: org._id })" title="Manage company profile">
+                <button class="btn btn-text-only" ui-sref="orgs.view({ orgId: org._id })" title="Manage collaborator profile">
                   <i class="fas fa-cog"></i>
                 </button>
               </div>

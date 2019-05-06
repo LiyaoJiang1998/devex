@@ -46,11 +46,11 @@
       <!-- Stage 1a: Questions: Questions are pending review by someone with the 'vetter' role -->
       <div class="text-center" ng-if="vm.opportunity.evaluationStage === vm.stages.REVIEW">
         <div class="py-3" ng-if="vm.proposals.length > 1"><i class="far fa-lg fa-smile"></i>
-          &nbsp;You received proposals from {{vm.proposals.length}} companies.</div>
+          &nbsp;You received proposals from {{vm.proposals.length}} collaborators.</div>
         <div class="py-3" ng-if="vm.proposals.length === 1"><i class="far fa-lg fa-smile"></i>
           &nbsp;You received one proposal.</div>
         <div class="py-3" ng-if="vm.proposals.length === 0"><i class="far fa-lg fa-frown"></i>
-          &nbsp;Sorry, no companies submitted proposals on this opportunity.</div>
+          &nbsp;Sorry, no collaborators submitted proposals on this opportunity.</div>
         <div class="swu-evaluation-cta">
           <p><i class="far fa-lg fa-hourglass"></i> &nbsp; Review in progress .... Check back soon!</p>
           <p>A procurement specialist is reviewing the responses to the Team Questions to make sure they don't contain
@@ -61,11 +61,11 @@
       <!-- Stage 1b: Questions: Choose question grading type as linear or weighted -->
       <div class="text-center" ng-if="vm.opportunity.evaluationStage === vm.stages.GRADE_TYPE">
         <div class="py-3" ng-if="vm.proposals.length > 1"><i class="far fa-lg fa-smile"></i>
-          &nbsp;You received proposals from {{vm.proposals.length}} companies.</div>
+          &nbsp;You received proposals from {{vm.proposals.length}} collaborators.</div>
         <div class="py-3" ng-if="vm.proposals.length === 1"><i class="far fa-lg fa-smile"></i>
           &nbsp;You received one proposal</div>
         <div class="py-3" ng-if="vm.proposals.length === 0"><i class="far fa-lg fa-frown"></i>
-          &nbsp;Sorry, no companies submitted proposals on this opportunity.</div>
+          &nbsp;Sorry, no collaborators submitted proposals on this opportunity.</div>
         <div class="swu-evaluation-cta">
           <p>Your first step is to choose how you would like to grade the responses that were submitted to the Team
             Questions. </p>
@@ -82,11 +82,11 @@
       <!-- Stage 1c: Questions: Questionnaire response ranking (modal) has not been saved yet -->
       <div class="text-center" ng-if="vm.opportunity.evaluationStage === vm.stages.QUESTIONS_INIT">
         <div class="py-3" ng-if="vm.proposals.length > 1"><i class="far fa-lg fa-smile"></i>
-          &nbsp;You received proposals from {{vm.proposals.length}} companies.</div>
+          &nbsp;You received proposals from {{vm.proposals.length}} collaborators.</div>
         <div class="py-3" ng-if="vm.proposals.length === 1"><i class="far fa-lg fa-smile"></i>
           &nbsp;You received one proposal</div>
         <div class="py-3" ng-if="vm.proposals.length === 0"><i class="far fa-lg fa-frown"></i>
-          &nbsp;Sorry, no companies submitted proposals on this opportunity.</div>
+          &nbsp;Sorry, no collaborators submitted proposals on this opportunity.</div>
         <div class="swu-evaluation-cta">
           <p>Your first step is to comparatively rank the responses that teams submitted to the Team Questions.</p>
           <button class="btn btn-lg btn-primary" ng-if="vm.proposals.length >= 1" ng-click="vm.openQuestionRankingModal()">Rank
@@ -109,11 +109,11 @@
       <div class="text-center" ng-if="vm.opportunity.evaluationStage === vm.stages.CODE_SCORES">
         <div class="py-3">Next step: the Code Challenge.</div>
         <div class="swu-evaluation-cta">
-          <p>In the table below, you should see which companies screen in for the Code Challenge.</p>
-          <p>Right now, you need to: <strong>(1) Notify all the companies who did not screen in</strong> and <strong>(2)
-              Send the Code Challenge to all companies who did screen in.</strong></p>
+          <p>In the table below, you should see which collaborators screen in for the Code Challenge.</p>
+          <p>Right now, you need to: <strong>(1) Notify all the collaborators who did not screen in</strong> and <strong>(2)
+              Send the Code Challenge to all collaborators who did screen in.</strong></p>
           <p>Once the Code Challenge submissions have been evaluated, come back here to enter the scores for each
-            company. </p>
+            collaborator. </p>
           <button class="btn btn-lg btn-primary" ng-click="vm.openCodeChallengeModal()">Enter Code Challenge scores
             &nbsp;<i class="fas fa-lg fa-chevron-circle-right"></i></button>
         </div>
@@ -127,7 +127,7 @@
           <p>For teams that passed the Code Challenge, now you need to send them information about the Team Scenario
             and get those scheduled.</p>
           <p>Once all of the Team Scenarios have taken place and your evaluation panel has come to consensus on the
-            overall scores for each company, come back to enter the total scores.</p>
+            overall scores for each collaborator, come back to enter the total scores.</p>
           <button class="btn btn-lg btn-primary" ng-click="vm.openInterviewModal()">Enter Team Scenario scores &nbsp;<i
               class="fas fa-lg fa-chevron-circle-right"></i></button>
         </div>
@@ -139,8 +139,8 @@
         <div class="swu-evaluation-cta">
           <p>The evaluation is complete. The score for pricing has been automatically calculated by the system and the
             top scoring team is listed in the table below.</p>
-          <p>After you have contacted the winning company and confirmed that they will be taking on the contract, you
-            can click the Assign button below to show all viewers of the opportunity page which company won the
+          <p>After you have contacted the winning collaborator and confirmed that they will be taking on the contract, you
+            can click the Assign button below to show all viewers of the opportunity page which collaborator won the
             competition.</p>
         </div>
       </div>
@@ -166,7 +166,7 @@
             <thead>
               <tr>
                 <th class="text-left">
-                  <span uib-tooltip="Company">Company</span>
+                  <span uib-tooltip="Collaborator">Collaborator</span>
                 </th>
                 <th class="text-center">
                   <span uib-tooltip="Skills (out of {{vm.opportunity.weights.skill * vm.maximumScore}})">Skills</span>
@@ -198,7 +198,7 @@
             <tbody>
               <tr ng-repeat="proposal in vm.proposals | orderBy:'-scores.total'">
                 <td class="text-left">
-                  <span ng-show="vm.opportunity.evaluationStage <= vm.stages.QUESTIONS_SAVED">Company {{$index + 1}}</span>
+                  <span ng-show="vm.opportunity.evaluationStage <= vm.stages.QUESTIONS_SAVED">Collaborator {{$index + 1}}</span>
                   <a ng-show="vm.opportunity.evaluationStage >= vm.stages.CODE_SCORES" ng-click="vm.showCompanyInfo(proposal)">
                     {{proposal.businessName | limitTo: 20 }}{{ proposal.businessName.length > 20 ? '...' : '' }}
                   </a>

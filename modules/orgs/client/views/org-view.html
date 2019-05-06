@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <a href="/orgs"><i class="fas fa-chevron-left"></i>&nbsp;&nbsp;All Companies</a>
+        <a href="/orgs"><i class="fas fa-chevron-left"></i>&nbsp;&nbsp;All Collaborators</a>
       </div>
     </div>
   </div>
@@ -48,8 +48,8 @@
           <div class="company-contact">
             <div>{{vm.org.address}}</div>
             <div class="mb-3">{{vm.org.city}} {{vm.org.postalcode}}</div>
-            <div data-automation-id="lblBusinessRegistration" id="lblBusinessRegistration" class="mb-3"><span class="text-muted">Business Registration No.:</span> {{vm.org.businessNumber}}</div>
-            <div class="text-muted">Company Contact:</div>
+            <!-- <div data-automation-id="lblBusinessRegistration" id="lblBusinessRegistration" class="mb-3"><span class="text-muted">Business Registration No.:</span> {{vm.org.businessNumber}}</div> -->
+            <div class="text-muted">Collaborator Contact:</div>
             <div>{{vm.org.contactName}}</div>
             <div>{{vm.org.contactPhone}}</div>
             <div>{{vm.org.contactEmail}}</div>
@@ -77,7 +77,7 @@
       <div class="col-md-12 col-lg-5 my-3">
         <h4>Requests</h4>
         <div ng-if="vm.org.joinRequests.length > 0">
-          <p>These people want to affiliate with your company.</p>
+          <p>These people want to affiliate with your collaborator.</p>
           <ul class="list-group">
             <li ng-repeat="member in vm.org.joinRequests"
                 class="list-group-item d-flex w-100 align-items-center member"
@@ -133,7 +133,7 @@
 
         <div ng-if="vm.orgIsCapable" class="alert alert-success">
           <i class="fas fa-shield-alt"></i>
-          <span>Your company has covered all of the capabilities required to apply on <span class="font-italic">Sprint With Us</span> opportunities.
+          <span>Your Collaborator has covered all of the capabilities required to apply on <span class="font-italic">Sprint With Us</span> opportunities.
 
         </div>
 
@@ -176,7 +176,7 @@
     <div ng-if="vm.isOrgAdmin() || vm.isAdmin()" class="row">
       <div class="col m-0 p-0">
           <button  data-automation-id="btnDelete" class="btn btn-danger float-left" ng-click="vm.removeOrg()">
-            <i class="fas fa-trash"></i>&nbsp;Delete Company Profile
+            <i class="fas fa-trash"></i>&nbsp;Delete Collaborator Profile
           </button>
       </div>
     </div>

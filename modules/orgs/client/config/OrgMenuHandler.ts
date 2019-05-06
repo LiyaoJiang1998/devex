@@ -11,7 +11,7 @@ class OrgMenuHandler {
 	public initMenus(): void {
 		// Create Companies menu item
 		this.MenuService.addMenuItem('topbar', {
-			title: 'Companies',
+			title: 'Collaborators',
 			state: 'orgs.list',
 			roles: ['*'],
 			icon: 'none',
